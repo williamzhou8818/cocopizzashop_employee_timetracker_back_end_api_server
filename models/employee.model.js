@@ -18,19 +18,21 @@ module.exports = class EmployeeModel {
     }
 
     static updateById(id) {
-        return db.execute(`UPDATE employee SET is_clock_in=1 WHERE id=${id}`);
+        return db.execute('UPDATE `employee` SET `is_clock_in` = ?  WHERE `employee`.`id` = ?  ', [true, `${id}`]);
     }
     static updateSetIsClockInFalseById(id) {
-        return db.execute(`UPDATE employee SET is_clock_in=0 WHERE id=${id}`);
+        return db.execute('UPDATE `employee` SET `is_clock_in` = ? WHERE `employee`.`id` = ? ', [false,`${id}`]);
     }
 
     static updateIsClockOutById(id) {
-        return db.execute(`UPDATE employee SET is_clock_out=1 WHERE id=${id}`);
+        return db.execute(' UPDATE `employee` SET `is_clock_out`=?  WHERE `employee`.`id`= ? ',  [true, `${id}`]);
     }
 
     static updateIsClockOutFalseById(id) {
-        return db.execute(`UPDATE employee SET is_clock_out=0 WHERE id=${id}`);
+        return db.execute('UPDATE `employee` SET `is_clock_out`=? WHERE `employee`.`id`= ? ', [false, `${id}`]);
     }
+
+
 
 
 

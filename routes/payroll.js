@@ -6,16 +6,14 @@ const PayRolls = require('../models/payroll.model');
 //Post for tarcking log
 router.post('/', (req, res) => {
 
-    // console.log(req.body)
+   // console.log(req.body)
     let _PayRolls = new PayRolls(
                     req.body.employee_id,
                     req.body.employee_name, 
                     req.body.hour_rate, 
                     req.body.total_hours_worked,
                     req.body.total_weekly_paid,
-                    req.body.is_paid_done,
-                    req.body.date_of_paid
-                            
+                    req.body.paid_on_date
                 );
 
     _PayRolls.save()

@@ -24,10 +24,14 @@ app.get('/', (req, res) => {
 
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/payrolls', require('./routes/payroll'));
+app.use('/api/ispaidlogs', require('./routes/is_paid_logs'));
 app.use('/api/employee', require('./routes/employee'));
 app.use('/api/clock_in_tracking_log', require('./routes/clock_in_tracking_logs'));
 app.use('/api/clock_out_tracking_log', require('./routes/clock_out_tracking_logs'));
 
+app.use('/api/products', require('./routes/products'));
+
 app.listen(5000, () => {
     console.log('coco pizza shop emplyee manage api run at port 5000');
 });
+
